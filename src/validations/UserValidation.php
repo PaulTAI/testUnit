@@ -18,27 +18,27 @@ class UserValidation
             "firstname" => array(null),
             "lastname" => array(null),
             "password" => array(null, null),
-            "age" => array(null)
+            "age" => array(null, null)
         );
 
         // email
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $errors["email"][0] = "format invalide";
         };
-        if ($email != null) {
+        if ($email == null) {
             $errors["email"][1] = "vide";
         };
 
         // firstname
-        if ($firstname != null) {
+        if ($firstname == null) {
             $errors["firstname"][0] = "vide";
         };
         //lastname
-        if ($lastname != null) {
+        if ($lastname == null) {
             $errors["lastname"][0] = "vide";
         };
         //password
-        if($password != null) {
+        if($password == null) {
             $errors["password"][0] = "vide";
         }
         if(strlen($password) < 8 || strlen($password) > 40) {
@@ -50,7 +50,7 @@ class UserValidation
         }
 
         if(
-            $errors["email"][0] == null && 
+            $errors["email"][0] == null  && 
             $errors["email"][1] == null && 
             $errors["firstname"][0] == null && 
             $errors["lastname"][0] == null && 
