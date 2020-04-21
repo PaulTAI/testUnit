@@ -11,14 +11,14 @@ class UserValidation
     {
     }
 
-    public function isValid(string $email, string $firstname, string $lastname, string $password, int $age, string $toDoListName)
+    public function isValid(string $email, string $firstname, string $lastname, string $password, int $age)
     {
         $errors = array(
-            "email" => array(),
-            "firstname" => array(),
-            "lastname" => array(),
-            "password" => array(),
-            "age" => array()
+            "email" => array(null, null),
+            "firstname" => array(null),
+            "lastname" => array(null),
+            "password" => array(null, null),
+            "age" => array(null)
         );
 
         // email

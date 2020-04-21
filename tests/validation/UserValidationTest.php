@@ -16,12 +16,13 @@ class UserValidationTest extends TestCase
         $user->setFirstname("polo");
         $user->setLastname("Faure");
         $user->setEmail("mamamia@hotmail.fr");
-        $user->setPassword("azerty");
+        $user->setPassword("azertyuiop");
         $user->setAge(17);
+        $user->setToDoList(null);
 
-        $employeeRepository = $this->createMock(ObjectRepository::class);
+        $userRepository = $this->createMock(ObjectRepository::class);
 
-        $employeeRepository->expects($this->any())
+        $userRepository->expects($this->any())
             ->method('find')
             ->willReturn($user);
 
@@ -29,9 +30,9 @@ class UserValidationTest extends TestCase
 
         $objectManager->expects($this->any())
             ->method('getRepository')
-            ->willReturn($employeeRepository);
+            ->willReturn($userRepository);
 
-        $salaryCalculator = new SalaryCalculator($objectManager);
-        $this->assertEquals(2100, $salaryCalculator->calculateTotalSalary(1));
+        $userValide = new UserValidation($objectManager);
+        $this->assertEquals(true, $userValide->isValid("mamamia@hotmail.fr", "polo", "Faure", "azertyuiop", 17));
     }
 }
