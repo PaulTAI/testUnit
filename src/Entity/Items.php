@@ -29,6 +29,11 @@ class Items
     private $content;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nameItem;
+
+    /**
      * @ORM\Column(type="date")
      */
     private $createDate;
@@ -77,6 +82,18 @@ class Items
     public function setContent(string $content): self
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getNameItem(): ?string
+    {
+        return $this->nameItem;
+    }
+
+    public function setNameItem(string $nameItem): self
+    {
+        $this->nameItem = $nameItem;
 
         return $this;
     }
