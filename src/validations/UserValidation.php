@@ -30,7 +30,7 @@ class UserValidation
         };
 
         // firstname
-        if ($firstname == null) {
+        if ($firstname == null || strlen($firstname) < 3) {
             $errors["firstname"][0] = "vide";
         };
         //lastname
@@ -62,6 +62,53 @@ class UserValidation
             return true;
         }else {
             return false;
+        }
+    }
+
+    public function canAddItem($item)
+    {
+        $content = $item->getContent();
+        $name = $item->getNameItem();
+        $date = $item->getCreateDate();
+
+        $errors = array(
+            "name" => array(null),
+            "content" => array(null),
+            "date" => array(null)
+        );
+
+        if($name == null || strlen($name) > 30 || strlen($name) < 3){
+            $errors["name"][0] = "invalide name";
+        }
+        if($content == null || strlen($content) > 1000 || strlen($content) < 3){
+            $errors["content"][0] = "invalide content";
+        }
+        if($date == null ){
+            $errors["date"][0] = "date invalide";
+        }
+
+        if(
+            $errors["name"][0] == null &&
+            $errors["content"][0] == null &&
+            $errors["date"][0] == null
+        ){
+            //$this->sendMail($user);
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    public function sendMail($user)
+    {
+        $age = $user->getAge();
+        if($age >= 18){
+            return true;
+            //envoie du mail
+        }else{
+            return false;
+            //age requis 18
         }
     }
 }
