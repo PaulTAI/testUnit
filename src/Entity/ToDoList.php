@@ -19,7 +19,7 @@ class ToDoList
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\user", mappedBy="ToDoList")
+     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="ToDoList")
      */
     private $name;
 

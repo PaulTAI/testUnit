@@ -32,22 +32,22 @@ class DefaultController extends AbstractController
             )
         );
 
-        // return new Response(
-        //     json_encode(
-        //         [
-        //             "user" => [
-        //                 [
-        //                     "name" => "zd",
-        //                     "lastname" => "zd",
-        //                     "skills" => "zjdiz",
-        //                     "id" => 4,
-        //                     "is_ban" => false,
-        //                     "creation_date" => "2020-01-02 00:00:00"
-        //                 ]
-        //             ]
-        //         ]
-        //     )
-        // );
+/*          return new Response(
+             json_encode(
+                 [
+                     "user" => [
+                         [
+                             "name" => "zd",
+                             "lastname" => "zd",
+                             "skills" => "zjdiz",
+                             "id" => 4,
+                             "is_ban" => false,
+                             "creation_date" => "2020-01-02 00:00:00"
+                         ]
+                     ]
+                 ]
+             )
+         );*/
     }
 
     /**

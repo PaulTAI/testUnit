@@ -19,7 +19,7 @@ class Items
     private $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\todolist", inversedBy="items")
+     * @ORM\ManyToMany(targetEntity="App\Entity\ToDoList", inversedBy="items")
      */
     private $name;
 
