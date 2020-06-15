@@ -175,6 +175,6 @@ class UserValidationTest extends TestCase
             ->willReturn($userRepository);
 
         $sendMail = new UserValidation($objectManager);
-        $this->assertEquals(true, $sendMail->sendMail($user));
+        $this->assertEquals(false, $sendMail->sendMail($user));
     }
 }
