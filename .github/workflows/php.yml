@@ -15,6 +15,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
+      
+    - name: composer install
+      run: composer install
+      
     - name: effectue les tests
       run : ./vendor/bin/phpunit tests
